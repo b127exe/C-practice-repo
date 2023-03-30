@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ConsoleApp1.practice</StartupObject>
+    <StartupObject>ConsoleApp1.Atm</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

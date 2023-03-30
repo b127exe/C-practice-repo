@@ -11,6 +11,11 @@ namespace ConsoleApp1
 {
     class Atm
     {
+        public int fastCash(ref int balance, int amount)
+        {
+            balance = balance - amount;
+            return balance;
+        }
         static void Main(string[] args)
         {
 
@@ -18,131 +23,200 @@ namespace ConsoleApp1
             int reservePin = 123;
             int count = 0;
 
-            pinStart:
+        pinStart:
             Console.Clear();
+            
+            Console.WriteLine("\r\n     ___       __          __    __       ___      .______    __  .______           ___   .___________..___  ___. \r\n    /   \\     |  |        |  |  |  |     /   \\     |   _  \\  |  | |   _  \\         /   \\  |           ||   \\/   | \r\n   /  ^  \\    |  |        |  |__|  |    /  ^  \\    |  |_)  | |  | |  |_)  |       /  ^  \\ `---|  |----`|  \\  /  | \r\n  /  /_\\  \\   |  |        |   __   |   /  /_\\  \\   |   _  <  |  | |   _  <       /  /_\\  \\    |  |     |  |\\/|  | \r\n /  _____  \\  |  `----.   |  |  |  |  /  _____  \\  |  |_)  | |  | |  |_)  |     /  _____  \\   |  |     |  |  |  | \r\n/__/     \\__\\ |_______|   |__|  |__| /__/     \\__\\ |______/  |__| |______/     /__/     \\__\\  |__|     |__|  |__| \r\n                                                                                                                  \r\n");
+            Console.WriteLine("==================================================================================================================");
 
-            Console.WriteLine("\t\t\t\t\t========================================");
-            Console.WriteLine("\t\t\t\t\t\t" + @"   /\    ------- |\    /|");
-            Console.WriteLine("\t\t\t\t\t\t" + @"  /  \      |    | \  / |");
-            Console.WriteLine("\t\t\t\t\t\t" + @" /----\     |    |  \/  |");
-            Console.WriteLine("\t\t\t\t\t\t" + @"/      \    |    |      |");
-            Console.WriteLine("\t\t\t\t\t========================================");
-
-            Console.Write("\n\t\t\t\t\tENTER PIN: ");
+            Console.Write("\n\t\tENTER PIN: ");
             int enterPin = int.Parse(Console.ReadLine());
 
-            if( enterPin == reservePin )
+            if (enterPin == reservePin)
             {
-                Console.WriteLine("\n\t\t\t\t\t1) Balance Inquiry \t\t2) Fast Cash \n\n\t\t\t\t\t3) Cash WithDrawel \t\t4) PIN Change \n\n\t\t\t\t\t5) Exit");
+            options:
+                Console.Clear();
+                Console.WriteLine("\t\n  ______   .______   .___________. __    ______   .__   __.      _______.\r\n /  __  \\  |   _  \\  |           ||  |  /  __  \\  |  \\ |  |     /       |\r\n|  |  |  | |  |_)  | `---|  |----`|  | |  |  |  | |   \\|  |    |   (----`\r\n|  |  |  | |   ___/      |  |     |  | |  |  |  | |  . `  |     \\   \\    \r\n|  `--'  | |  |          |  |     |  | |  `--'  | |  |\\   | .----)   |   \r\n \\______/  | _|          |__|     |__|  \\______/  |__| \\__| |_______/    \r\n                                                                         \r\n");
+                Console.WriteLine("==================================================================================================================");
 
-                Console.Write("\n\t\t\t\t\tEnter Option: ");
+                Console.WriteLine("\n\t\t1) Balance Inquiry \t\t2) Fast Cash \n\n\t\t3) Cash WithDrawel \t\t4) PIN Change \n\n\t\t5) Exit");
+
+                Console.Write("\n\t\tEnter Option: ");
                 int option = int.Parse(Console.ReadLine());
 
-                if(option == 1)
+                if (option == 1)
                 {
-                    Console.WriteLine("\n\t\t\t\t\t========================================");
-                    Console.WriteLine("\n\t\t\t\t\t\tBALANCE INQUIRY");
-                    Console.WriteLine("\n\t\t\t\t\tAcc no:1348446 \n\n\t\t\t\t\tName: Bilal Khan \n\n\t\t\t\t\tTotal Balance: " + balance + "Rs");
+                    Console.WriteLine("\n\t\t========================================");
+                    Console.WriteLine("\n\t\tBALANCE INQUIRY");
+                    Console.WriteLine("\n\t\tAcc no:1348446 \n\n\t\tName: Bilal Khan \n\n\t\tTotal Balance: " + balance + "Rs");
+                    Console.Write("\n\t\tDo you want to continue... ( yes / no) ");
+                    string cont = Console.ReadLine();
+                    if (cont == "yes")
+                    {
+                        goto options;
+                    }
+                    else
+                    {
+                        goto end;
+                    }
                 }
                 else if (option == 2)
                 {
-                    Console.WriteLine("\n\t\t\t\t\t========================================");
-                    Console.WriteLine("\n\t\t\t\t\t\tFAST CASH OPTIONS \n\n\t\t\t\t\t1) 500 \t\t\t\t2) 1000 \n\n\t\t\t\t\t3) 2000 \t\t\t4) 5000");
-                    Console.Write("\n\t\t\t\t\tEnter Option: ");
+                    Console.WriteLine("\n\t\t========================================");
+                    Console.WriteLine("\n\t\t\tFAST CASH OPTIONS \n\n\t\t1) 500 \t\t\t\t2) 1000 \n\n\t\t3) 2000 \t\t\t4) 5000");
+                    Console.Write("\n\t\tEnter Option: ");
                     int fastOp = int.Parse(Console.ReadLine());
-                    if(fastOp <= balance)
+                    if (fastOp <= balance)
                     {
-                    if(fastOp == 1)
-                    {
-                        balance = balance - 500;
-                            Console.WriteLine("\n\t\t\t\t\t========================================");
-                            Console.WriteLine("\n\t\t\t\t\tFast Cash Successfull \n\n\t\t\t\t\tYour current balance is " + balance + "Rs");
-                    }
-                    else if(fastOp == 2) {
-                            balance = balance - 1000;
-                            Console.WriteLine("\n\t\t\t\t\t========================================");
-                            Console.WriteLine("\n\t\t\t\t\tFast Cash Successfull \n\n\t\t\t\t\tYour current balance is " + balance + "Rs");
-                        }
-                    else if(fastOp == 3)
+                        var fastcash = new Atm();
+                        if (fastOp == 1)
                         {
-                            balance = balance - 2000;
-                            Console.WriteLine("\n\t\t\t\t\t========================================");
-                            Console.WriteLine("\n\t\t\t\t\tFast Cash Successfull \n\n\t\t\t\t\tYour current balance is " + balance + "Rs");
+                            Console.WriteLine("\n\t\t========================================");
+                            Console.WriteLine("\n\t\tFast Cash Successfull \n\n\t\tYour current balance is " + fastcash.fastCash(ref balance, 500) + "Rs");
+                            Console.Write("\n\t\tDo you want to continue... ( yes / no) ");
+                            string cont = Console.ReadLine();
+                            if (cont == "yes")
+                            {
+                                goto options;
+                            }
+                            else
+                            {
+                                goto end;
+                            }
                         }
-                    else if(fastOp == 4)
+                        else if (fastOp == 2)
                         {
-                            balance = balance - 5000;
-                            Console.WriteLine("\n\t\t\t\t\t========================================");
-                            Console.WriteLine("\n\t\t\t\t\tFast Cash Successfull \n\n\t\t\t\t\tYour current balance is " + balance + "Rs");
+                            Console.WriteLine("\n\t\t========================================");
+                            Console.WriteLine("\n\t\tFast Cash Successfull \n\n\t\tYour current balance is " + fastcash.fastCash(ref balance, 1000) + "Rs");
+                            Console.Write("\n\t\tDo you want to continue... ( yes / no) ");
+                            string cont = Console.ReadLine();
+                            if (cont == "yes")
+                            {
+                                goto options;
+                            }
+                            else
+                            {
+                                goto end;
+                            }
+                        }
+                        else if (fastOp == 3)
+                        {
+                            Console.WriteLine("\n\t\t========================================");
+                            Console.WriteLine("\n\t\tFast Cash Successfull \n\n\t\tYour current balance is " + fastcash.fastCash(ref balance, 2000) + "Rs");
+                            Console.Write("\n\t\tDo you want to continue... ( yes / no) ");
+                            string cont = Console.ReadLine();
+                            if (cont == "yes")
+                            {
+                                goto options;
+                            }
+                            else
+                            {
+                                goto end;
+                            }
+                        }
+                        else if (fastOp == 4)
+                        {
+                            Console.WriteLine("\n\t\t========================================");
+                            Console.WriteLine("\n\t\tFast Cash Successfull \n\n\t\tYour current balance is " + fastcash.fastCash(ref balance, 5000) + "Rs");
+                            Console.Write("\n\t\tDo you want to continue... ( yes / no) ");
+                            string cont = Console.ReadLine();
+                            if (cont == "yes")
+                            {
+                                goto options;
+                            }
+                            else
+                            {
+                                goto end;
+                            }
                         }
                         else
                         {
-                            Console.WriteLine("\n\t\t\t\t\tInvalid Option");
+                            Console.WriteLine("\n\t\tInvalid Option");
                         }
                     }
                     else
                     {
-                        Console.WriteLine("\n\t\t\t\t\tInsufficient Balance...");
+                        Console.WriteLine("\n\t\tInsufficient Balance...");
                     }
                 }
-                else if(option == 3)
+                else if (option == 3)
                 {
-                    Console.WriteLine("\n\t\t\t\t\t========================================");
-                    Console.WriteLine("\n\t\t\t\t\t\tCASH WITHDRAWEL");
+                    Console.WriteLine("\n\t\t========================================");
+                    Console.WriteLine("\n\t\t\tCASH WITHDRAWEL");
 
-                    Console.Write("\n\t\t\t\t\tEnter Withdawel amount: ");
+                    Console.Write("\n\t\tEnter Withdawel amount: ");
                     int withAmount = int.Parse(Console.ReadLine());
 
-                    if(withAmount <= balance)
+                    if (withAmount <= balance)
                     {
-                        balance = withAmount - balance;
-                        Console.WriteLine("\n\t\t\t\t\t========================================");
-                        Console.WriteLine("\n\t\t\t\t\t{0}Rs Withdraw successfully! \n\n\t\t\t\t\tYour current balance is {1}Rs",withAmount,balance);
+                        balance = balance - withAmount;
+                        Console.WriteLine("\n\t\t========================================");
+                        Console.WriteLine("\n\t\t{0}Rs Withdraw successfully! \n\n\t\tYour current balance is {1}Rs", withAmount, balance);
+                        Console.WriteLine("\n\t\t========================================");    
+                        Console.Write("\n\t\tDo you want to continue... ( yes / no) ");
+                        string cont = Console.ReadLine();
+                        if (cont == "yes")
+                        {
+                            goto options;
+                        }
+                        else
+                        {
+                            goto end;
+                        }
                     }
                     else
                     {
                         Console.WriteLine("\n\t\t\t\t\tThe amout you enter is insufficient...");
+                        Console.Write("\n\t\t\t\t\tDo you want to continue... ( yes / no) ");
+                        string cont = Console.ReadLine();
+                        if (cont == "yes")
+                        {
+                            goto options;
+                        }
+                        else
+                        {
+                            goto end;
+                        }
                     }
                 }
-                else if(option == 4)
+                else if (option == 4)
                 {
                 changePIN:
                     Console.Clear();
-                    Console.WriteLine("\n\t\t\t\t\t========================================");
-                    Console.WriteLine("\n\t\t\t\t\t\tPIN CHANGE");
+                    Console.WriteLine("\r\n.______    __  .__   __.      ______  __    __       ___      .__   __.   _______  _______ \r\n|   _  \\  |  | |  \\ |  |     /      ||  |  |  |     /   \\     |  \\ |  |  /  _____||   ____|\r\n|  |_)  | |  | |   \\|  |    |  ,----'|  |__|  |    /  ^  \\    |   \\|  | |  |  __  |  |__   \r\n|   ___/  |  | |  . `  |    |  |     |   __   |   /  /_\\  \\   |  . `  | |  | |_ | |   __|  \r\n|  |      |  | |  |\\   |    |  `----.|  |  |  |  /  _____  \\  |  |\\   | |  |__| | |  |____ \r\n| _|      |__| |__| \\__|     \\______||__|  |__| /__/     \\__\\ |__| \\__|  \\______| |_______|\r\n                                                                                           \r\n");
 
-                    Console.Write("\n\t\t\t\t\tEnter Old PIN: ");
+                    Console.Write("\n\t\tEnter Old PIN: ");
                     int oldPIN = int.Parse(Console.ReadLine());
 
-                    if(oldPIN == reservePin)
+                    if (oldPIN == reservePin)
                     {
-                        Console.Write("\n\t\t\t\t\tEnter New PIN: ");
+                        Console.Write("\n\t\tEnter New PIN: ");
                         int newPIN = int.Parse(Console.ReadLine());
 
                         reservePin = newPIN;
-                        Console.WriteLine("\n\t\t\t\t\t========================================");
-                        Console.WriteLine("\n\t\t\t\t\tPIN successfully changed...\n\n\t\t\t\t\tYou are about logout in 5 seconds.");
+                        Console.WriteLine("\n\t\t========================================");
+                        Console.WriteLine("\n\t\tPIN successfully changed...\n\n\t\tYou are about logout in 5 seconds.");
                         Thread.Sleep(5000);
                         goto pinStart;
                     }
                     else
                     {
-                        Console.WriteLine("\n\t\t\t\t\tOld PIN not match...");
+                        Console.WriteLine("\n\t\tOld PIN not match...");
                         Thread.Sleep(2000);
                         goto changePIN;
                     }
                 }
-                else if(option == 5)
+                else if (option == 5)
                 {
                     goto end;
                 }
                 else
                 {
-                    Console.WriteLine("\n\t\t\t\t\tThe option you enter is unavailable...");
+                    Console.WriteLine("\n\t\tThe option you enter is unavailable...");
 
-                    Console.Write("\n\t\t\t\t\tDo you want to continue... ( yes / no )");
+                    Console.Write("\n\t\tDo you want to continue... ( yes / no )");
                     string op = Console.ReadLine();
-                    if(op == "yes")
+                    if (op == "yes")
                     {
                         goto pinStart;
                     }
@@ -156,20 +230,20 @@ namespace ConsoleApp1
             else
             {
                 count++;
-                if(count == 3)
+                if (count == 3)
                 {
                     goto end;
                 }
                 else
                 {
-                Console.WriteLine("\n\t\t\t\t\tIncorrect Pin");
+                    Console.WriteLine("\n\t\tIncorrect Pin...");
                     Thread.Sleep(2000);
-                goto pinStart;
+                    goto pinStart;
                 }
             }
 
-            end:
-            Console.WriteLine("\n\t\t\t\t\tPROGRAM END...");
+        end:
+            Console.WriteLine("\n\t\tPROGRAM END...");
 
 
             Console.ReadKey();

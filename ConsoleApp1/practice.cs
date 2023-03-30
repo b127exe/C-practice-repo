@@ -19,70 +19,76 @@ namespace ConsoleApp1
          */
         
         // no argument and no return
-        public void myFunc1()
-        {
-            Console.WriteLine("This is function with no argument and no return");
-        }
+        //public void myFunc1()
+        //{
+        //    Console.WriteLine("This is function with no argument and no return");
+        //}
 
         // with argument and with return
-        public int myFunc2(int a, int b)
-        {
-            return a + b;
-        }
+        //public int myFunc2(int a, int b)
+        //{
+        //    return a + b;
+        //}
 
         // with argument and no return
-        public void myFunc3(string name)
-        {
-            Console.WriteLine("Mr. " + name);
-        }
+        //public void myFunc3(string name)
+        //{
+        //    Console.WriteLine("Mr. " + name);
+        //}
 
         // no argument and with return
-        public int myFunc4()
-        {
-            int i = 10;
-            int j = 14;
+        //public int myFunc4()
+        //{
+        //    int i = 10;
+        //    int j = 14;
             
-            return i + j;
-        }
+        //    return i + j;
+        //}
 
         // measure grade method
 
-        public char takeGrade(int per)
+        //public char takeGrade(int per)
+        //{
+        //    char grade;
+
+        //    if(per >= 90 && per <= 100)
+        //    {
+        //        grade = 'A';
+        //    }
+        //    else if(per >= 80 && per <= 90)
+        //    {
+        //        grade = 'B';
+        //    }
+        //    else if(per >= 70 && per <= 80)
+        //    {
+        //        grade = 'C';
+        //    }
+        //    else if(per >= 50 && per <= 70)
+        //    {
+        //        grade = 'D';
+        //    }
+        //    else
+        //    {
+        //        grade = 'F';
+        //    }
+
+        //    return grade;
+        //}
+
+        public int sample(ref int balance,int amount)
         {
-            char grade;
-
-            if(per >= 90 && per <= 100)
-            {
-                grade = 'A';
-            }
-            else if(per >= 80 && per <= 90)
-            {
-                grade = 'B';
-            }
-            else if(per >= 70 && per <= 80)
-            {
-                grade = 'C';
-            }
-            else if(per >= 50 && per <= 70)
-            {
-                grade = 'D';
-            }
-            else
-            {
-                grade = 'F';
-            }
-
-            return grade;
-        }
-
-        static void sample()
-        {
-            Console.WriteLine("Hello World");
+            balance = balance - amount;
+            return balance;
         }
 
         static void Main(string[] args)
         {
-            //sample();
+
+            //int balance = 2000;
+            //dynamic atm = new practice();
+            //Console.WriteLine(atm.sample(ref balance,500));
+
+
 
             //int math = 80;
             //int english = 60;
@@ -186,6 +192,38 @@ namespace ConsoleApp1
             //Console.WriteLine(@"  /  \      |    | \  / |");
             //Console.WriteLine(@" /----\     |    |  \/  |");  
             //Console.WriteLine(@"/      \    |    |      |");
+
+
+            // START PRACTICE WITH HARRY
+
+            //float a = 23.6F;
+            //double b = 34.2;
+            //Console.WriteLine(b);
+
+            /*
+             * int => 4 byte
+             * long => 8 byte
+             * float => 4 byte
+             * double => 8 byte
+             * bool => 1 bit
+             * string => 2 byte per character
+             * char => 2 byte
+            */
+
+            // type casting
+            // 1) Implicit => These conversions are performed by C# in a type-safe manner
+            // 2) Explicit => These conversions are done explicitly by users using the pre-defined functions.   
+
+            // 2)
+            //int x = Convert.ToInt32(34.6);
+            //string test = Convert.ToString(45);
+            //Console.WriteLine(test.GetType());
+
+            // 1)
+            //int y = 23;
+            //float z = y;  
+
+            //Console.WriteLine("\r\n     ___       __          __    __       ___      .______    __  .______           ___   .___________..___  ___. \r\n    /   \\     |  |        |  |  |  |     /   \\     |   _  \\  |  | |   _  \\         /   \\  |           ||   \\/   | \r\n   /  ^  \\    |  |        |  |__|  |    /  ^  \\    |  |_)  | |  | |  |_)  |       /  ^  \\ `---|  |----`|  \\  /  | \r\n  /  /_\\  \\   |  |        |   __   |   /  /_\\  \\   |   _  <  |  | |   _  <       /  /_\\  \\    |  |     |  |\\/|  | \r\n /  _____  \\  |  `----.   |  |  |  |  /  _____  \\  |  |_)  | |  | |  |_)  |     /  _____  \\   |  |     |  |  |  | \r\n/__/     \\__\\ |_______|   |__|  |__| /__/     \\__\\ |______/  |__| |______/     /__/     \\__\\  |__|     |__|  |__| \r\n                                                                                                                  \r\n");
 
 
             Console.ReadKey();  
